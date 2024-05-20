@@ -1,1 +1,25 @@
 <p>all-students works!</p>
+<button class="back-button" routerLink = "/">
+    <mat-icon>
+        arrow_back
+    </mat-icon>
+</button>
+<div class="student-container">
+    @for(student of students; track student.name)
+    {
+        <mat-card class="student-card">
+            <mat-card-header>
+                <mat-card-subtitle>Students Name</mat-card-subtitle>
+                <mat-card-title>{{student.name}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>This is the best student</p>
+                <mat-divider></mat-divider>
+            </mat-card-content>
+            <mat-card-actions>
+                <button class="actions-btns">Contacts</button>
+                <button class="actions-btns">Details</button>
+            </mat-card-actions>
+        </mat-card>
+    }
+</div>
