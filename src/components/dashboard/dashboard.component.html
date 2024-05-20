@@ -1,1 +1,13 @@
-<p>dashboard works!</p>
+<!-- All Users list -->
+<div class="allStudents" [routerLink]="['/students']">
+    All Students
+</div>
+
+<div class="subject-block-container">
+    <button class="subject-blocks" [routerLink]="['/subject', 'physics']">Physics</button>
+    <button class="subject-blocks" [routerLink]="['/subject', 'chemistry']">Chemistry</button>
+</div>
+<div class="subject-block-container">
+    <button class="subject-blocks" [routerLink]="['/subject', 'maths']">Maths</button>
+    <button class="subject-blocks" [routerLink]="['/subject', 'comps']">Computers</button>
+</div>

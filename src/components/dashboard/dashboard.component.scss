@@ -1,0 +1,32 @@
+
+.subject-block-container{
+    display: flex;
+    flex-direction: row;
+    max-width: 400px;
+    padding: 12px;
+    gap: 24px;
+}
+
+.subject-blocks{
+    height: 150px;
+    width: 150px;
+    background-color: #ffc100;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    border-radius: 10%;
+    font-size: 16px;
+    padding: 24px;
+    gap: 24px
+}
+
+.allStudents{
+    background-color: #ffc100;
+
+    padding: 12px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+    border-radius: 8px;
+    max-width: 400px;
+}

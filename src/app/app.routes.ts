@@ -5,15 +5,15 @@ import { AllStudentsComponent } from '../components/all-students/all-students.co
 
 export const routes: Routes = [
     {
-        path: "/dashboard",
+        path: "",
         component: DashboardComponent
     },
     {
-        path: "/subjects",
+        path: "subjects",
         component: SubjectsComponent
     },
     {
-        path: "/students",
+        path: "students",
         component: AllStudentsComponent
     }
 ];
