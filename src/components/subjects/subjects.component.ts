@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ActivatedRoute } from '@angular/router';
-
+import { StudentService } from '../services/student-service/student.service';
 
 @Component({
   selector: 'app-subjects',
   standalone: true,
-  imports: [MatIconModule, MatListModule],
+  imports: [MatIconModule, MatListModule, StudentService],
   templateUrl: './subjects.component.html',
   styleUrl: './subjects.component.scss'
 })
@@ -35,7 +35,7 @@ export class SubjectsComponent {
 
   updateTopper() {
     for (let i = 0; i < this.studentData.length; i++) {
-      if(this.topper.marks < this.studentData[i].marks ){
+      if (this.topper.marks < this.studentData[i].marks) {
         this.topper = this.studentData[i];
       }
     }
