@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { StudentService } from '../services/student-service/student.service';
+import { CommonModule } from '@angular/common';
+import {switchMap} from 'rxjs'
 
 @Component({
   selector: 'app-subjects',
   standalone: true,
-  imports: [MatIconModule, MatListModule, StudentService],
+  imports: [MatIconModule, MatListModule, CommonModule, RouterModule],
   templateUrl: './subjects.component.html',
   styleUrl: './subjects.component.scss'
 })
@@ -26,12 +28,23 @@ export class SubjectsComponent {
     this.route.params.pipe(
       // switchMap().subscribe();
       // switchMap((res:any) => {}).subscribe((res:any)=>{});
-      switchMap((res: any) => this.studentService.getSubjectData(res?.subjectName)).subscribe((res: any) => {
+      switchMap((res: any) => 
+        this.studentService.getSubjectData(res?.subjectName)))
+      .subscribe((res: any) => {
         this.studentData = res;
         this.updateTopper();
       });
-    );
+    
+    this.route.params.pipe(switchMap(
+			(res: any) => this.studentService.getSubjectData(res?.subjectName)
+		)).subscribe(
+			(res: any) => {
+				this.studentData = res;
+				this.updateTopper();
+			}
+		);
   }
+  
 
   updateTopper() {
     for (let i = 0; i < this.studentData.length; i++) {
@@ -41,3 +54,4 @@ export class SubjectsComponent {
     }
   }
 }
+
