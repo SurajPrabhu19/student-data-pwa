@@ -14,7 +14,7 @@ import {switchMap} from 'rxjs'
   styleUrl: './subjects.component.scss'
 })
 export class SubjectsComponent {
-  studentData: any;
+  studentsData: any;
   topper: any = {
     name: "",
     marks: Number.MIN_VALUE
@@ -24,32 +24,23 @@ export class SubjectsComponent {
     private route: ActivatedRoute,
     private studentService: StudentService
   ) {
-    // super();
     this.route.params.pipe(
       // switchMap().subscribe();
       // switchMap((res:any) => {}).subscribe((res:any)=>{});
       switchMap((res: any) => 
         this.studentService.getSubjectData(res?.subjectName)))
       .subscribe((res: any) => {
-        this.studentData = res;
+        this.studentsData = res;
         this.updateTopper();
       });
     
-    this.route.params.pipe(switchMap(
-			(res: any) => this.studentService.getSubjectData(res?.subjectName)
-		)).subscribe(
-			(res: any) => {
-				this.studentData = res;
-				this.updateTopper();
-			}
-		);
   }
   
 
   updateTopper() {
-    for (let i = 0; i < this.studentData.length; i++) {
-      if (this.topper.marks < this.studentData[i].marks) {
-        this.topper = this.studentData[i];
+    for (let i = 0; i < this.studentsData.length; i++) {
+      if (this.topper.marks < this.studentsData[i].marks) {
+        this.topper = this.studentsData[i];
       }
     }
   }

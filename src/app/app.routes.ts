@@ -9,7 +9,7 @@ export const routes: Routes = [
         component: DashboardComponent
     },
     {
-        path: "subjects",
+        path: "subjects/:subjectName",
         component: SubjectsComponent
     },
     {
